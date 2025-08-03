@@ -19,10 +19,10 @@ def get_window_bounds(hwnd):
     bottom_right = win32gui.ClientToScreen(hwnd, (rect[2], rect[3]))
     return (top_left[0], top_left[1], bottom_right[0], bottom_right[1])
 
-def cursor_in_bounds(pos, bounds):
+def cursor_in_bounds(pos, bounds, padding):
     x, y = pos
     left, top, right, bottom = bounds
-    return left <= x <= right and top <= y <= bottom
+    return (left + padding) <= x <= (right - padding) and (top + padding) <= y <= (bottom - padding)
 
 def clamp_cursor_to_bounds(bounds):
     left, top, right, bottom = bounds
@@ -34,6 +34,7 @@ hwnd = find_minecraft_window()
 if hwnd:
     bounds = get_window_bounds(hwnd)
     print(f"Window found. Bounds: {bounds}")
+    padding = 100
     paused = False
     try:
         while True:
@@ -52,7 +53,7 @@ if hwnd:
             
             if not paused:
                 pos = win32api.GetCursorPos()
-                if not cursor_in_bounds(pos, bounds):
+                if not cursor_in_bounds(pos, bounds, padding):
                     clamp_cursor_to_bounds(bounds)
             
             time.sleep(0.01)

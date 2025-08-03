@@ -19,7 +19,7 @@ This repository contains a Python script to lock the mouse cursor within the Min
 3. Extract the ZIP file to a folder on your computer (e.g., using right-click > Extract All).
 4. Open the extracted folder.
 
-No manual installation needed—the `start.bat` script handles everything, including Python and dependencies.
+No manual installation needed. The `start.bat` script handles everything, including Python and dependencies.
 
 ## Usage
 1. Launch Minecraft Bedrock and enter a world.
