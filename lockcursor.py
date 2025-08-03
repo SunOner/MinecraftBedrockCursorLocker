@@ -52,9 +52,11 @@ if hwnd:
                 break
             
             if not paused:
-                pos = win32api.GetCursorPos()
-                if not cursor_in_bounds(pos, bounds, padding):
-                    clamp_cursor_to_bounds(bounds)
+                active_hwnd = win32gui.GetForegroundWindow()
+                if active_hwnd == hwnd:
+                    pos = win32api.GetCursorPos()
+                    if not cursor_in_bounds(pos, bounds, padding):
+                        clamp_cursor_to_bounds(bounds)
             
             time.sleep(0.01)
     except KeyboardInterrupt:
