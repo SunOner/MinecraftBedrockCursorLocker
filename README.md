@@ -25,10 +25,10 @@ No manual installation needed. The `start.bat` script handles everything, includ
 1. Launch Minecraft Bedrock and enter a world.
 2. Double-click `start.bat` (run as administrator if needed).
    - It will check and install Python/pywin32 if missing.
-   - Then, it automatically runs `script.py` to start locking the cursor.
+   - Then, it automatically runs `lockcursor.py` to start locking the cursor.
 3. Use the hotkeys as needed.
 4. To stop, press Alt+2 or Ctrl+C in the console window.
 
 ## Notes
 - Run the script after opening Minecraft.
-- If the window title differs (e.g., due to language), adjust the "Minecraft" string in `script.py`.
+- If the window title differs (e.g., due to language), adjust the "Minecraft" string in `lockcursor.py`.
